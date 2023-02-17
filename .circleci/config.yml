@@ -6,7 +6,7 @@ orbs:
 jobs:
     build-and-test:
         docker:
-            - image: cimg/node:12.16
+            - image: cimg/node:18.12
         resource_class: xlarge
         parallelism: 15
         steps:
