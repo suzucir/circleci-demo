@@ -5,15 +5,15 @@ orbs:
 
 jobs:
     build-and-test:
-        docker:
+        docker: # image to run on
             - image: cimg/node:18.12
-        resource_class: xlarge
-        parallelism: 15
+        resource_class: xlarge # how much CPU/RAM
+        parallelism: 15 # nodes to split test suite over
         steps:
             - checkout
             - node/install-packages:
                 pkg-manager: yarn      
-            - run:
+            - run: # split test suite over the parallel nodes
                 name: Test application
                 command: |
                     TEST=$(circleci tests glob "src/__tests__/*.js" | circleci tests split --split-by=timings)
