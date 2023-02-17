@@ -7,12 +7,12 @@ jobs:
     build-and-test:
         docker:
             - image: cimg/node:12.16
-        parallelism: 5
+        resource_class: xlarge
+        parallelism: 15
         steps:
             - checkout
             - node/install-packages:
                 pkg-manager: yarn      
-            - run: mkdir ~/junit
             - run:
                 name: Test application
                 command: |
