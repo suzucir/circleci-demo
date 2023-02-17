@@ -12,7 +12,8 @@ jobs:
         steps:
             - checkout
             - node/install-packages:
-                pkg-manager: yarn      
+                pkg-manager: yarn    
+            - run: mkdir ~/junit
             - run: # split test suite over the parallel nodes
                 name: Test application
                 command: |
