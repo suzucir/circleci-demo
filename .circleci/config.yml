@@ -1,12 +1,12 @@
 version: 2.1
 
 orbs:
-    node: circleci/node@3.0.1
+    node: circleci/node@5.1.0
 
 jobs:
     build-and-test:
         docker: # image to run on
-            - image: cimg/node:18.12
+            - image: cimg/node:21.2
         resource_class: xlarge # how much CPU/RAM
         parallelism: 15 # nodes to split test suite over
         steps:
